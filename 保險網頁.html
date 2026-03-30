@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>保險 - 守護你的每一刻</title>
+    <!-- 引入 Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Montserrat:wght@600;800&display=swap" rel="stylesheet">
+    <!-- 引入 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            primary: '#0F4C81', // 經典專業藍
+                            secondary: '#F5A623', // 轉換率金
+                            accent: '#EAF2F8',
+                            dark: '#1B2631'
+                        }
+                    },
+                    borderRadius: {
+                        'modern': '1.25rem',
+                    },
+                    fontFamily: {
+                        sans: ['Noto Sans TC', 'sans-serif'],
+                        heading: ['Montserrat', 'Noto Sans TC', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 3s ease-in-out infinite',
+                        'slide-in': 'slideIn 0.5s ease-out forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        slideIn: {
+                            '0%': { opacity: '0', transform: 'translateX(20px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-morphism {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #0F4C81 0%, #1B2631 100%);
+        }
+        .text-gradient {
+            background: linear-gradient(to right, #F5A623, #FFD97D);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .carousel-item {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        .carousel-item.active {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+    <!-- 導航欄 -->
+    <nav class="fixed w-full z-50 transition-all duration-300 glass-morphism py-4 px-6 md:px-12 flex justify-between items-center">
+        <div class="flex items-center space-x-2">
+            <div class="w-10 h-10 bg-brand-primary rounded-modern flex items-center justify-center">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+            </div>
+            <span class="text-2xl font-heading font-extrabold text-brand-primary tracking-tight">保險</span>
+        </div>
+        <div class="hidden md:flex space-x-8 font-medium">
+            <a href="#mission" class="hover:text-brand-primary transition">品牌使命</a>
+            <a href="#services" class="hover:text-brand-primary transition">精選服務</a>
+            <a href="#trust" class="hover:text-brand-primary transition">用戶信任</a>
+        </div>
+        <button class="bg-brand-primary text-white px-6 py-2 rounded-modern font-bold hover:bg-opacity-90 transition transform hover:scale-105">
+            聯絡顧問
+        </button>
+    </nav>
+
+    <!-- 首屏區塊 (Hero Section) -->
+    <section class="relative min-h-screen flex items-center pt-20 overflow-hidden hero-gradient">
+        <div class="absolute inset-0 opacity-10">
+            <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <circle cx="10" cy="20" r="15" fill="white" class="animate-pulse"></circle>
+                <circle cx="90" cy="80" r="20" fill="white" class="animate-pulse" style="animation-delay: 1s"></circle>
+            </svg>
+        </div>
+
+        <div class="container mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-12 items-center relative z-10">
+            <div class="text-white space-y-6">
+                <h1 class="text-5xl md:text-7xl font-heading font-extrabold leading-tight">
+                    保護你的生活 <br>
+                    <span class="text-gradient">預見更美好的未來</span>
+                </h1>
+                <p class="text-xl text-gray-300 leading-relaxed max-w-lg">
+                    我們不僅提供保單，更為您的夢想構築最堅實的後盾。透過數據驅動的精準評估，為您與家人量身打造全方位的防護網。
+                </p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <button class="bg-brand-secondary text-brand-dark px-10 py-4 rounded-modern text-lg font-bold hover:shadow-2xl hover:-translate-y-1 transition-all">
+                        開始預約
+                    </button>
+                    <button class="border-2 border-white text-white px-10 py-4 rounded-modern text-lg font-bold hover:bg-white hover:text-brand-primary transition-all">
+                        了解詳情
+                    </button>
+                </div>
+            </div>
+
+            <!-- 圖片輪轉區塊 (Carousel) -->
+            <div class="relative group">
+                <div class="absolute -inset-4 bg-brand-secondary/20 rounded-modern blur-xl group-hover:blur-2xl transition duration-500"></div>
+                <div class="relative bg-white p-2 rounded-modern shadow-2xl overflow-hidden aspect-[4/3]">
+                    <div id="hero-carousel" class="h-full w-full relative">
+                        <!-- 已移除「未來規劃」圖片，僅保留專業諮詢與家庭保障 -->
+                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=800" alt="專業諮詢" class="carousel-item active absolute inset-0 w-full h-full object-cover rounded-xl">
+                        <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=800" alt="家庭保障" class="carousel-item absolute inset-0 w-full h-full object-cover rounded-xl">
+                    </div>
+                </div>
+                <!-- 浮動裝飾小卡 -->
+                <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-modern shadow-lg animate-float">
+                    <div class="flex items-center space-x-3">
+                        <div class="p-2 bg-green-100 rounded-full text-green-600">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                        </div>
+                        <div>
+                            <p class="text-sm font-bold">理賠成功率</p>
+                            <p class="text-xs text-gray-500">2023年統計達 99.8%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 品牌使命故事 -->
+    <section id="mission" class="py-24 bg-white">
+        <div class="container mx-auto px-6 md:px-12 text-center">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-brand-primary text-sm font-bold tracking-widest uppercase mb-4">Our Mission</h2>
+                <h3 class="text-4xl font-bold mb-8">超越保障，成就安穩</h3>
+                <p class="text-lg text-gray-600 leading-loose">
+                    我們深信，保險不應只是冷冰冰的條款，而是對生命熱愛的具體體現。成立十年來，我們專注於將複雜的保障簡單化，讓每位客戶在面對人生的不確定性時，都能擁有從容轉身的底氣。您的平安，就是我們最大的使命。
+                </p>
+                <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-8">
+                    <div class="p-4">
+                        <p class="text-4xl font-extrabold text-brand-primary">10+</p>
+                        <p class="text-gray-500">深耕年資</p>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-4xl font-extrabold text-brand-primary">50k+</p>
+                        <p class="text-gray-500">服務家庭</p>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-4xl font-extrabold text-brand-primary">24/7</p>
+                        <p class="text-gray-500">理賠協助</p>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-4xl font-extrabold text-brand-primary">AAA</p>
+                        <p class="text-gray-500">信用評等</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 精選服務卡片 -->
+    <section id="services" class="py-24 bg-brand-accent">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                <div class="mb-6 md:mb-0">
+                    <h2 class="text-brand-primary text-sm font-bold tracking-widest uppercase mb-2">Our Services</h2>
+                    <h3 class="text-4xl font-bold">為您量身規劃的方案</h3>
+                </div>
+                <a href="#" class="text-brand-primary font-bold hover:underline flex items-center">
+                    查看所有方案 <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </a>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- 醫療保障 -->
+                <div class="bg-white p-8 rounded-modern shadow-sm hover:shadow-xl transition-all duration-300 group border border-transparent hover:border-brand-secondary">
+                    <div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center text-brand-primary mb-6 group-hover:bg-brand-primary group-hover:text-white transition-colors">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                    </div>
+                    <h4 class="text-xl font-bold mb-4">全方位醫療保障</h4>
+                    <p class="text-gray-600 mb-6 leading-relaxed">涵蓋重大疾病、住院實支實付，讓您面對健康突發狀況時，能享有最好的醫療品質。</p>
+                    <button class="w-full py-3 rounded-modern border border-brand-primary text-brand-primary font-bold hover:bg-brand-primary hover:text-white transition">方案試算</button>
+                </div>
+
+                <!-- 退休規劃 -->
+                <div class="bg-white p-8 rounded-modern shadow-sm hover:shadow-xl transition-all duration-300 group border border-transparent hover:border-brand-secondary">
+                    <div class="w-14 h-14 bg-amber-100 rounded-2xl flex items-center justify-center text-brand-secondary mb-6 group-hover:bg-brand-secondary group-hover:text-brand-dark transition-colors">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h4 class="text-xl font-bold mb-4">退休與資產規劃</h4>
+                    <p class="text-gray-600 mb-6 leading-relaxed">透過穩定的分紅與儲蓄方案，為您的退休生活提前佈局，享受複利帶來的財富增長。</p>
+                    <button class="w-full py-3 rounded-modern border border-brand-primary text-brand-primary font-bold hover:bg-brand-primary hover:text-white transition">諮詢顧問</button>
+                </div>
+
+                <!-- 產險 -->
+                <div class="bg-white p-8 rounded-modern shadow-sm hover:shadow-xl transition-all duration-300 group border border-transparent hover:border-brand-secondary">
+                    <div class="w-14 h-14 bg-indigo-100 rounded-2xl flex items-center justify-center text-indigo-600 mb-6 group-hover:bg-indigo-600 group-hover:text-white transition-colors">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                    </div>
+                    <h4 class="text-xl font-bold mb-4">房產與意外產險</h4>
+                    <p class="text-gray-600 mb-6 leading-relaxed">您的房產、車輛與財產值得最周全的防護。不管是天災或意外，我們第一時間站在您身邊。</p>
+                    <button class="w-full py-3 rounded-modern border border-brand-primary text-brand-primary font-bold hover:bg-brand-primary hover:text-white transition">立即投保</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 頁腳 (Footer) -->
+    <footer class="bg-brand-dark text-gray-400 py-12">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-sm">© 2024 保險股份有限公司 版權所有。</p>
+        </div>
+    </footer>
+
+    <!-- 跳轉至最上層按鍵 -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-brand-primary text-white w-12 h-12 rounded-full shadow-2xl opacity-0 translate-y-10 transition-all duration-300 flex items-center justify-center hover:bg-brand-secondary z-50">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
+    </button>
+
+    <script>
+        // 輪播邏輯
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-item');
+        
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        // 每 4 秒自動切換一次
+        setInterval(nextSlide, 4000);
+
+        // 導航欄與回到頂部按鈕效果
+        const nav = document.querySelector('nav');
+        const backToTopBtn = document.getElementById('back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                nav.classList.add('py-2', 'shadow-md');
+                nav.classList.remove('py-4');
+                backToTopBtn.classList.remove('opacity-0', 'translate-y-10');
+                backToTopBtn.classList.add('opacity-100', 'translate-y-0');
+            } else {
+                nav.classList.add('py-4');
+                nav.classList.remove('py-2', 'shadow-md');
+                backToTopBtn.classList.add('opacity-0', 'translate-y-10');
+                backToTopBtn.classList.remove('opacity-100', 'translate-y-0');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
